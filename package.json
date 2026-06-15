@@ -1,0 +1,65 @@
+{
+  "name": "@agent-ix/agent-pty",
+  "description": "Drive interactive coding-agent CLIs (claude, codex) through a tmux session for evals and scripted control.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "packageManager": "pnpm@10.10.0",
+  "scripts": {
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:json": "vitest run --reporter=json --outputFile=report.json || true",
+    "lint": "eslint \"src/**/*.ts\" --no-error-on-unmatched-pattern \"tests/**/*.ts\" && pnpm run format:check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "build": "vite build",
+    "clean": "rm -rf node_modules dist coverage .pnpm-store",
+    "install:frozen": "pnpm install --frozen-lockfile",
+    "update-lock": "pnpm install --lockfile-only",
+    "version": "node scripts/build-tools.js version",
+    "info": "node scripts/build-tools.js info",
+    "docker:build": "docker build -t ghcr.io/agent-ix/agent-pty .",
+    "publish:dry-run": "pnpm publish --dry-run",
+    "prepublishOnly": "pnpm run build",
+    "tags": "npm dist-tag ls @agent-ix/agent-pty --registry https://npm.pkg.github.com || echo '(package not found or registry unavailable)'",
+    "pkg:add": "pnpm add",
+    "pkg:add-dev": "pnpm add -D",
+    "pkg:update": "pnpm update",
+    "pkg:update-latest": "pnpm update --latest",
+    "pkg:use-local": "pnpm dlx @agent-ix/js-deps use-local",
+    "pkg:use-upstream": "pnpm dlx @agent-ix/js-deps use-upstream",
+    "pkg:refresh-local": "pnpm dlx @agent-ix/js-deps refresh-local",
+    "test-results:summary": "./node_modules/.bin/jest-results summary",
+    "test-results:groups": "./node_modules/.bin/jest-results groups",
+    "test-results:detail": "./node_modules/.bin/jest-results detail",
+    "test-results:find": "./node_modules/.bin/jest-results find",
+    "test-results:failed": "./node_modules/.bin/jest-results failed",
+    "test-results:errors": "./node_modules/.bin/jest-results errors",
+    "test-results:warnings": "./node_modules/.bin/jest-results warnings"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.59.3",
+    "@typescript-eslint/parser": "^8.59.3",
+    "@types/node": ">=25.6.0",
+    "eslint": "^10.3.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "vite": ">=6.3.4",
+    "vite-plugin-dts": ">=4.5.3",
+    "vitest": ">=3.1.2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agent-ix/agent-pty.git"
+  }
+}
