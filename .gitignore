@@ -7,3 +7,8 @@ node_modules
 .pnpm-store
 coverage/
 .npmrc
+
+# Build artifacts
+target/
+*-target/
+.worktrees/

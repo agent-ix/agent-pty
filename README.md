@@ -8,6 +8,10 @@ wait for screen content, capture the rendered terminal, and tear
 everything down — all without depending on each agent's headless
 mode.
 
+```sh
+npm install @agent-ix/agent-pty
+```
+
 ```ts
 import { startSession } from "@agent-ix/agent-pty";
 
@@ -41,4 +45,14 @@ agent live.
 
 ## Status
 
-Standalone Agent IX package extracted from the `ix-agent-skills` monorepo.
+Pre-release. Published to public npm as `@agent-ix/agent-pty`.
+
+## Contributing
+
+External pull requests require signing the
+[Agent IX CLA](https://github.com/agent-ix/.github/blob/main/CLA.md); the CLA
+Assistant bot comments on your first pull request with instructions.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

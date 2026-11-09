@@ -27,7 +27,7 @@
     "docker:build": "docker build -t ghcr.io/agent-ix/agent-pty .",
     "publish:dry-run": "pnpm publish --dry-run",
     "prepublishOnly": "pnpm run build",
-    "tags": "npm dist-tag ls @agent-ix/agent-pty --registry https://npm.pkg.github.com || echo '(package not found or registry unavailable)'",
+    "tags": "npm dist-tag ls @agent-ix/agent-pty --registry https://registry.npmjs.org || echo '(package not found or registry unavailable)'",
     "pkg:add": "pnpm add",
     "pkg:add-dev": "pnpm add -D",
     "pkg:update": "pnpm update",
@@ -56,7 +56,8 @@
     "vitest": "^4.1.9"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,23 @@
+name: CLA Assistant Lite
+
+# Enforces the Agent IX CLA (https://github.com/agent-ix/.github/blob/main/CLA.md)
+# on external pull requests. The actual logic lives once in agent-ix/.github so
+# it can be fixed in one place; this file only wires the triggers. Signatures
+# are recorded in THIS repo, on its cla-signatures branch, using its own
+# automatic GITHUB_TOKEN -- no cross-repo secret required.
+on:
+  pull_request_target:
+    types: [opened, synchronize, closed]
+  issue_comment:
+    types: [created]
+
+permissions:
+  actions: write
+  pull-requests: write
+  issues: write
+  statuses: write
+  contents: write
+
+jobs:
+  cla:
+    uses: agent-ix/.github/.github/workflows/cla-assistant-lite.yml@main
