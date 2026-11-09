@@ -19,11 +19,5 @@ jobs:
     uses: agent-ix/nodejs-actions/.github/workflows/release.yml@main
     with:
       npm_registry: https://registry.npmjs.org
-      # First-publish form: token auth (trusted_publish: true blanks the token).
-      # A follow-up flips this to true, and drops the secret, once the first
-      # publish and the npm Trusted Publisher entry exist.
-      trusted_publish: false
+      trusted_publish: true
       node_version: "22" # OIDC Trusted Publishing requires Node >= 22.14
-    secrets:
-      # Temporary repo secret NPM_TOKEN, first publish only.
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_TOKEN }}
